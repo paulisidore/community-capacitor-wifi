@@ -1,6 +1,7 @@
 import { WebPlugin } from '@capacitor/core';
-import { WifiPlugin } from './definitions';
+import type { WifiPlugin } from './definitions';
 export declare class WifiWeb extends WebPlugin implements WifiPlugin {
+    constructor();
     getIP(): Promise<{
         ip: string | null;
     }>;

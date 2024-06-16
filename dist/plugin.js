@@ -3,11 +3,17 @@ var capacitorWifi = (function (exports, core) {
 
     const Wifi = core.registerPlugin('Wifi', {
         web: () => Promise.resolve().then(function () { return web; }).then(m => new m.WifiWeb()),
-        electron: () => window.CapacitorCustomPlatform.plugins.Wifi,
-        android: () => window.CapacitorCustomPlatform.plugins.Wifi
     });
 
     class WifiWeb extends core.WebPlugin {
+        constructor() {
+            super();
+            window.screen.orientation.addEventListener("change", () => {
+                const type = window.screen.orientation.type;
+                console.log("Changement de l'orientation de l'Ecran: ", type);
+                this.notifyListeners("screenOrientationChange", { type });
+            });
+        }
         async getIP() {
             return { ip: null };
         }
@@ -38,5 +44,5 @@ var capacitorWifi = (function (exports, core) {
 
     return exports;
 
-}({}, capacitorExports));
+})({}, capacitorExports);
 //# sourceMappingURL=plugin.js.map

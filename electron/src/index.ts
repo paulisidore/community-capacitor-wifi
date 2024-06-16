@@ -93,7 +93,7 @@ export class Wifi implements WifiPlugin {
   }
 
   private timeout(millis: number): Promise<void> {
-    return new Promise(async (resolve: () => void) => {
+    return new Promise( (resolve: () => void) => {
       setTimeout(() => {
         resolve();
       }, millis);
@@ -143,7 +143,7 @@ export class Wifi implements WifiPlugin {
   }
 
   private async reconnect(ssid: string): Promise<void> {
-    return new Promise(async (resolve: (res: any) => void, reject: (err: any) => void) => {
+    return new Promise( (resolve: (res: any) => void, reject: (err: any) => void) => {
       const env: any = Object.assign(process.env, {
         LANG: 'en_US.UTF-8',
         LC_ALL: 'en_US.UTF-8',
@@ -165,5 +165,10 @@ export class Wifi implements WifiPlugin {
         }
       );
     });
+  }
+
+  addListener(eventName: 'onIpV4Disponible', listenerFunc: (ipAddr: {ip: string}) => void) : Promise<any> {
+      console.log("Electron Ajout evenment non implémenté: "+eventName + " Function: ", listenerFunc);
+      return ;
   }
 }

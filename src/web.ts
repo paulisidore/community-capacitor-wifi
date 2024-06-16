@@ -1,7 +1,17 @@
 import { WebPlugin } from '@capacitor/core';
-import { WifiPlugin } from './definitions';
+
+import type { WifiPlugin } from './definitions';
 
 export class WifiWeb extends WebPlugin implements WifiPlugin {
+
+  constructor (){
+    super();
+    window.screen.orientation.addEventListener("change", () => {      
+      const type = window.screen.orientation.type;
+      console.log("Changement de l'orientation de l'Ecran: ", type);
+      this.notifyListeners("screenOrientationChange", { type });
+    });
+  }
 
   async getIP(): Promise<{ ip: string | null }> {
     return { ip: null };

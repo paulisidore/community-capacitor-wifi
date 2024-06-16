@@ -1,5 +1,13 @@
 import { WebPlugin } from '@capacitor/core';
 export class WifiWeb extends WebPlugin {
+    constructor() {
+        super();
+        window.screen.orientation.addEventListener("change", () => {
+            const type = window.screen.orientation.type;
+            console.log("Changement de l'orientation de l'Ecran: ", type);
+            this.notifyListeners("screenOrientationChange", { type });
+        });
+    }
     async getIP() {
         return { ip: null };
     }

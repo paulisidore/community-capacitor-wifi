@@ -7,6 +7,7 @@
 * [`connect(...)`](#connect)
 * [`connectPrefix(...)`](#connectprefix)
 * [`disconnect()`](#disconnect)
+* [`addListener('onIpV4Disponible', ...)`](#addlisteneronipv4disponible-)
 
 </docgen-index>
 
@@ -70,6 +71,24 @@ connectPrefix(options: { ssid: string; password?: string; joinOnce?: boolean; })
 ```typescript
 disconnect() => Promise<void>
 ```
+
+--------------------
+
+
+### addListener('onIpV4Disponible', ...)
+
+```typescript
+addListener(eventName: 'onIpV4Disponible', listenerFunc: (ipAddr: { ip: string; }) => void) => Promise<any>
+```
+
+Se déclenche lorsqu'une adresse Ip est trouvée.
+
+| Param              | Type                                              |
+| ------------------ | ------------------------------------------------- |
+| **`eventName`**    | <code>'onIpV4Disponible'</code>                   |
+| **`listenerFunc`** | <code>(ipAddr: { ip: string; }) =&gt; void</code> |
+
+**Returns:** <code>Promise&lt;any&gt;</code>
 
 --------------------
 

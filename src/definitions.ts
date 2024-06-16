@@ -1,3 +1,4 @@
+
 export interface WifiPlugin {
   getIP(): Promise<{ ip: string | null }>;
   getSSID(): Promise<{ ssid: string | null }>;
@@ -16,4 +17,13 @@ export interface WifiPlugin {
     joinOnce?: boolean,
   }): Promise<{ ssid: string | null }>;
   disconnect(): Promise<void>;
+  
+  /**
+   * Se déclenche lorsqu'une adresse Ip est trouvée.
+   */
+  addListener(
+    eventName: 'onIpV4Disponible',
+    listenerFunc: (ipAddr: {ip: string}) => void,
+  ): Promise<any>;
+
 }

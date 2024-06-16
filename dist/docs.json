@@ -66,6 +66,27 @@
         "docs": "",
         "complexTypes": [],
         "slug": "disconnect"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'onIpV4Disponible', listenerFunc: (ipAddr: { ip: string; }) => void) => Promise<any>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'onIpV4Disponible'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(ipAddr: { ip: string; }) => void"
+          }
+        ],
+        "returns": "Promise<any>",
+        "tags": [],
+        "docs": "Se déclenche lorsqu'une adresse Ip est trouvée.",
+        "complexTypes": [],
+        "slug": "addlisteneronipv4disponible-"
       }
     ],
     "properties": []
